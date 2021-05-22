@@ -55,6 +55,8 @@ async function runTestsInBrowser(browserType: BrowserType, endpoint: url.UrlWith
 	});
 
 	page.on('console', async (msg: playwright.ConsoleMessage) => {
+		console.log(`console: ${msg}`);
+
 		const msgText = msg.text();
 		if (msgText.indexOf('vscode:exit') >= 0) {
 			try {
@@ -72,13 +74,15 @@ async function runTestsInBrowser(browserType: BrowserType, endpoint: url.UrlWith
 			process.exit(msgText === 'vscode:exit 0' ? 0 : 1);
 		}
 	});
+	page.on('crash', () => {
+		console.error(`Crash`);
+	});
 	page.on('pageerror', async (error: Error) => {
 		console.error(`Error: ${error}`);
 	});
 	page.on('dialog', async (dialog: playwright.Dialog) => {
 		console.log(`Dialog: ${dialog.message}`);
 	});
-
 }
 
 function pkill(pid: number): Promise<void> {
