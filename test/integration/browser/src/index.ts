@@ -55,7 +55,7 @@ async function runTestsInBrowser(browserType: BrowserType, endpoint: url.UrlWith
 	});
 
 	page.on('console', async (msg: playwright.ConsoleMessage) => {
-		console.log(`console: ${msg}`);
+		console.log(`console: ${msg.text()}`);
 
 		const msgText = msg.text();
 		if (msgText.indexOf('vscode:exit') >= 0) {
