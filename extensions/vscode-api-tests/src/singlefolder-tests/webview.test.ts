@@ -17,7 +17,7 @@ function workspaceFile(...segments: string[]) {
 
 const testDocument = workspaceFile('bower.json');
 
-suite('vscode API - webview', () => {
+(vscode.env.uiKind === vscode.UIKind.Web ? suite.skip : suite)('vscode API - webview', () => {
 	const disposables: vscode.Disposable[] = [];
 
 	function _register<T extends vscode.Disposable>(disposable: T) {
@@ -32,7 +32,6 @@ suite('vscode API - webview', () => {
 	});
 
 	test('webviews should be able to send and receive messages', async () => {
-		console.log('Creating webview');
 		const webview = _register(vscode.window.createWebviewPanel(webviewId, 'title', { viewColumn: vscode.ViewColumn.One }, { enableScripts: true }));
 		const firstResponse = getMessage(webview);
 		webview.webview.html = createHtmlDocumentWithBody(/*html*/`
@@ -44,7 +43,6 @@ suite('vscode API - webview', () => {
 				});
 			</script>`);
 
-		console.log('Posting');
 		webview.webview.postMessage({ value: 1 });
 		assert.strictEqual((await firstResponse).value, 2);
 	});
