@@ -428,18 +428,18 @@
 		// "editorGroupHeader.noTabsBackground": "",
 		"editorGroup.border": "#00212B",
 		"editorGroup.dropBackground": "#2AA19844",
-		"editorGroupHeader.tabsBackground": "#004052",
+		"editorGroupHeader.tabsBackground": "#002B37",
 
 		// Workbench: Tabs
 		"tab.activeForeground": "#d6dbdb",
-		"tab.activeBackground": "#002B37",
+		"tab.activeBackground": "#004052",
 		"tab.inactiveForeground": "#93A1A1",
-		"tab.inactiveBackground": "#004052",
+		"tab.inactiveBackground": "#002B37",
 		"tab.border": "#003847",
 		"tab.lastPinnedBorder": "#2AA19844",
 
 		// Workbench: Activity Bar
-		"activityBar.background": "#003847",
+		"activityBar.background": "#002B37",
 		// "activityBarBadge.background": "",
 		// "activityBar.foreground": "",
 		// "activityBarBadge.foreground": "",

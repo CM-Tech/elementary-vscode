@@ -6,7 +6,7 @@
 import 'vs/css!./media/style';
 import { registerThemingParticipant } from 'vs/platform/theme/common/themeService';
 import { iconForeground, foreground, selectionBackground, focusBorder, scrollbarShadow, scrollbarSliderActiveBackground, scrollbarSliderBackground, scrollbarSliderHoverBackground, listHighlightForeground, inputPlaceholderForeground, toolbarHoverBackground, toolbarActiveBackground, toolbarHoverOutline, listFocusHighlightForeground } from 'vs/platform/theme/common/colorRegistry';
-import { WORKBENCH_BACKGROUND, TITLE_BAR_ACTIVE_BACKGROUND } from 'vs/workbench/common/theme';
+import { WORKBENCH_BACKGROUND, TITLE_BAR_ACTIVE_BACKGROUND, TAB_ACTIVE_BACKGROUND, TAB_INACTIVE_BACKGROUND, TAB_UNFOCUSED_INACTIVE_BACKGROUND, EDITOR_GROUP_HEADER_TABS_BACKGROUND } from 'vs/workbench/common/theme';
 import { isWeb, isIOS, isMacintosh, isWindows } from 'vs/base/common/platform';
 import { createMetaElement } from 'vs/base/browser/dom';
 import { isSafari, isStandalone } from 'vs/base/browser/browser';
@@ -85,6 +85,24 @@ registerThemingParticipant((theme, collector) => {
 
 			.monaco-workbench .monaco-scrollable-element > .shadow.top.left {
 				box-shadow: inset 1px 1px 1px ${scrollbarShadowColor.transparent(0.07)}, inset 1px 1px 2px ${scrollbarShadowColor.transparent(0.08)};
+			}
+		`);
+	}
+
+	// Actions
+	const actionActiveColor = theme.getColor(TAB_ACTIVE_BACKGROUND);
+	if (actionActiveColor) {
+		collector.addRule(`
+			.action-item.checked {
+				background-color: ${actionActiveColor};
+			}
+		`);
+	}
+	const actionBarColor = theme.getColor(EDITOR_GROUP_HEADER_TABS_BACKGROUND);
+	if (actionBarColor) {
+		collector.addRule(`
+			.monaco-workbench .part.panel .composite.title {
+				background-color: ${actionBarColor};
 			}
 		`);
 	}

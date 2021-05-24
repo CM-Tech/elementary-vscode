@@ -32,7 +32,7 @@
 		"editorIndentGuide.activeBackground": "#767771",
 		"editorGroupHeader.tabsBackground": "#1e1f1c",
 		"editorGroup.dropBackground": "#41433980",
-		"tab.inactiveBackground": "#34352f",
+		"tab.inactiveBackground": "#34352f00",
 		"tab.border": "#1e1f1c",
 		"tab.inactiveForeground": "#ccccc7", // needs to be bright so it's readable when another editor group is focused
 		"tab.lastPinnedBorder": "#414339",
