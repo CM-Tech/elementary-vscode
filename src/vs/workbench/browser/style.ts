@@ -76,15 +76,15 @@ registerThemingParticipant((theme, collector) => {
 	if (scrollbarShadowColor) {
 		collector.addRule(`
 			.monaco-workbench .monaco-scrollable-element > .shadow.top {
-				box-shadow: ${scrollbarShadowColor} 0 6px 6px -6px inset;
+				box-shadow: inset 0 1px 1px ${scrollbarShadowColor.transparent(0.07)}, inset 0 1px 2px ${scrollbarShadowColor.transparent(0.08)};
 			}
 
 			.monaco-workbench .monaco-scrollable-element > .shadow.left {
-				box-shadow: ${scrollbarShadowColor} 6px 0 6px -6px inset;
+				box-shadow: inset 1px 0 1px ${scrollbarShadowColor.transparent(0.07)}, inset 1px 0 2px ${scrollbarShadowColor.transparent(0.08)};
 			}
 
 			.monaco-workbench .monaco-scrollable-element > .shadow.top.left {
-				box-shadow: ${scrollbarShadowColor} 6px 6px 6px -6px inset;
+				box-shadow: inset 1px 1px 1px ${scrollbarShadowColor.transparent(0.07)}, inset 1px 1px 2px ${scrollbarShadowColor.transparent(0.08)};
 			}
 		`);
 	}
