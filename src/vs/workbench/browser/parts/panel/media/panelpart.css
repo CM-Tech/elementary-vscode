@@ -17,10 +17,11 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	background-color:#2c2c2c;
 }
 
 .monaco-workbench .part.panel.bottom .composite.title {
-	border-top-width: 1px;
+	border-top-width: 0px;
 	border-top-style: solid;
 }
 
@@ -29,7 +30,7 @@
 }
 
 .monaco-workbench .part.panel.right {
-	border-left-width: 1px;
+	border-left-width: 0px;
 	border-left-style: solid;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .monaco-workbench .part.panel.left {
-	border-right-width: 1px;
+	border-right-width: 0px;
 	border-right-style: solid;
 }
 
@@ -106,9 +107,10 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 11px;
-	padding-bottom: 3px; /* puts the bottom border down */
-	padding-top: 4px;
+	padding-bottom: 0px; /* puts the bottom border down */
+	padding-top: 1px;
 	display: flex;
+	height:100%;
 }
 
 .monaco-workbench .part.panel > .composite.title> .panel-switcher-container > .monaco-action-bar .action-item::before,
@@ -167,11 +169,11 @@
 }
 
 .monaco-workbench .part.panel > .composite.title> .panel-switcher-container > .monaco-action-bar .action-item:not(.checked) .action-label {
-	margin-bottom: 1px;
+	margin-bottom: 0px;
 }
 
 .monaco-workbench .part.panel > .composite.title> .panel-switcher-container > .monaco-action-bar .action-item.checked .action-label {
-	border-bottom: 1px solid;
+	border-bottom: 0px solid;
 	margin-right: 0;
 }
 

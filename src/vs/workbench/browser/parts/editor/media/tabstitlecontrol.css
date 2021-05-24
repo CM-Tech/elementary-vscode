@@ -68,6 +68,8 @@
 	display: flex;
 	height: 35px;
 	scrollbar-width: none; /* Firefox: hide scrollbar */
+	padding: 0 3px !important;
+
 }
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container.scroll {
@@ -84,7 +86,16 @@
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container::-webkit-scrollbar {
 	display: none; /* Chrome + Safari: hide scrollbar */
 }
-
+.tab-bar-new-file-button{
+width:29px;
+height: 35px;
+background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiA8bWV0YWRhdGE+CiAgPHJkZjpSREY+CiAgIDxjYzpXb3JrIHJkZjphYm91dD0iIj4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOnR5cGUgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIvPgogICAgPGRjOnRpdGxlLz4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjkzLC0xMTcpIiBjb2xvcj0iI2JlYmViZSI+CiAgPHBhdGggZD0ibTMwMCAxMjB2NGgtNHYyaDR2NGgydi00aDR2LTJoLTR2LTR6IiBmaWxsPSIjZmZmIiBvdmVyZmxvdz0idmlzaWJsZSIvPgogPC9nPgo8L3N2Zz4K');
+background-position: center center;
+background-repeat: no-repeat;
+background-size: 16px;
+cursor:default;
+margin-left: 3px;
+}
 /* Tab */
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab {
@@ -92,9 +103,15 @@
 	display: flex;
 	white-space: nowrap;
 	cursor: pointer;
-	height: 35px;
+	height: 29px;
 	box-sizing: border-box;
 	padding-left: 10px;
+	margin: 3px 0 !important;
+	border-radius: 3px;
+
+}
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active {
+	box-shadow: inset 0 -1px 0 0 rgb(255 255 255 / 4%), inset 0 1px 0 0 rgb(255 255 255 / 6%), inset 1px 0 0 0 rgb(255 255 255 / 1%), inset -1px 0 0 0 rgb(255 255 255 / 1%), 0 0 0 1px rgb(0 0 0 / 10%), 0 1px 1px rgb(0 0 0 / 7%), 0 1px 2px rgb(0 0 0 / 8%);
 }
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title > .tabs-and-actions-container.wrapping .tabs-container > .tab:last-child {
@@ -242,7 +259,7 @@
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label {
 	margin-top: auto;
 	margin-bottom: auto;
-	line-height: 35px; /* aligns icon and label vertically centered in the tab */
+	line-height: 29px; /* aligns icon and label vertically centered in the tab */
 }
 
 .monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.sizing-shrink .tab-label {

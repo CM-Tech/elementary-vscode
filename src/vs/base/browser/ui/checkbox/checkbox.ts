@@ -36,7 +36,7 @@ export interface ISimpleCheckboxStyles {
 const defaultOpts = {
 	inputActiveOptionBorder: Color.fromHex('#007ACC00'),
 	inputActiveOptionForeground: Color.fromHex('#FFFFFF'),
-	inputActiveOptionBackground: Color.fromHex('#0E639C50')
+	inputActiveOptionBackground: Color.fromHex('#3689e650')
 };
 
 export class CheckboxActionViewItem extends BaseActionViewItem {
@@ -203,7 +203,7 @@ export class Checkbox extends Widget {
 
 	protected applyStyles(): void {
 		if (this.domNode) {
-			this.domNode.style.borderColor = this._checked && this._opts.inputActiveOptionBorder ? this._opts.inputActiveOptionBorder.toString() : 'transparent';
+			this.domNode.style.borderColor = '#0000004d';//this._checked && this._opts.inputActiveOptionBorder ? this._opts.inputActiveOptionBorder.toString() : 'transparent';
 			this.domNode.style.color = this._checked && this._opts.inputActiveOptionForeground ? this._opts.inputActiveOptionForeground.toString() : 'inherit';
 			this.domNode.style.backgroundColor = this._checked && this._opts.inputActiveOptionBackground ? this._opts.inputActiveOptionBackground.toString() : 'transparent';
 		}

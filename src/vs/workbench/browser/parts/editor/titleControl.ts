@@ -39,6 +39,7 @@ import { withNullAsUndefined, withUndefinedAsNull, assertIsDefined } from 'vs/ba
 import { isFirefox } from 'vs/base/browser/browser';
 import { ITextEditorOptions } from 'vs/platform/editor/common/editor';
 import { isPromiseCanceledError } from 'vs/base/common/errors';
+import { ICommandService } from 'vs/platform/commands/common/commands';
 
 export interface IToolbarActions {
 	primary: IAction[];
@@ -75,6 +76,7 @@ export abstract class TitleControl extends Themable {
 	private readonly editorToolBarMenuDisposables = this._register(new DisposableStore());
 
 	private contextMenu: IMenu;
+	commandService: ICommandService;
 
 	constructor(
 		parent: HTMLElement,
@@ -90,10 +92,11 @@ export abstract class TitleControl extends Themable {
 		@IQuickInputService protected quickInputService: IQuickInputService,
 		@IThemeService themeService: IThemeService,
 		@IConfigurationService protected configurationService: IConfigurationService,
-		@IFileService private readonly fileService: IFileService
+		@IFileService private readonly fileService: IFileService,
+		@ICommandService commandService: ICommandService,
 	) {
 		super(themeService);
-
+		this.commandService = commandService;
 		this.resourceContext = this._register(instantiationService.createInstance(ResourceContextKey));
 		this.editorPinnedContext = ActiveEditorPinnedContext.bindTo(contextKeyService);
 		this.editorStickyContext = ActiveEditorStickyContext.bindTo(contextKeyService);

@@ -176,6 +176,7 @@ export class InputBox extends Widget {
 			this.mirror.innerText = '\u00a0';
 
 			this.scrollableElement = new ScrollableElement(this.element, { vertical: ScrollbarVisibility.Auto });
+			this.scrollableElement.getDomNode().style.overflow = 'visible';
 
 			if (this.options.flexibleWidth) {
 				this.input.setAttribute('wrap', 'off');

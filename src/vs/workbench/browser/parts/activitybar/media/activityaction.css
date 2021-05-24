@@ -57,8 +57,8 @@
 	z-index: 1;
 	display: flex;
 	overflow: hidden;
-	width: 48px;
-	height: 48px;
+	width: 42px;
+	height: 42px;
 	margin-right: 0;
 	box-sizing: border-box;
 
@@ -84,7 +84,7 @@
 	top: 0;
 	height: 100%;
 	width: 0;
-	border-left: 2px solid;
+	border-left: 0px solid;
 }
 
 .monaco-workbench .activitybar > .content :not(.monaco-menu) > .monaco-action-bar .action-item.checked .active-item-indicator:before {

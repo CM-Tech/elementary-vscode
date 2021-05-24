@@ -34,7 +34,7 @@ export interface IButtonStyles {
 }
 
 const defaultOptions: IButtonStyles = {
-	buttonBackground: Color.fromHex('#0E639C'),
+	buttonBackground: Color.fromHex('#3689e6'),
 	buttonHoverBackground: Color.fromHex('#006BB3'),
 	buttonForeground: Color.white
 };

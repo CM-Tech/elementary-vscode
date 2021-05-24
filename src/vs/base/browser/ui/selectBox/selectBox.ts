@@ -68,7 +68,7 @@ export interface ISelectBoxStyles extends IListStyles {
 export const defaultStyles = {
 	selectBackground: Color.fromHex('#3C3C3C'),
 	selectForeground: Color.fromHex('#F0F0F0'),
-	selectBorder: Color.fromHex('#3C3C3C')
+	selectBorder: Color.fromHex('#0000004d')
 };
 
 export interface ISelectData {

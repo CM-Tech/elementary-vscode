@@ -61,10 +61,10 @@
 
 .monaco-split-view2.separator-border.horizontal > .monaco-scrollable-element > .split-view-container > .split-view-view:not(:first-child)::before {
 	height: 100%;
-	width: 1px;
+	width: 0px;
 }
 
 .monaco-split-view2.separator-border.vertical > .monaco-scrollable-element > .split-view-container > .split-view-view:not(:first-child)::before {
-	height: 1px;
+	height: 0px;
 	width: 100%;
 }

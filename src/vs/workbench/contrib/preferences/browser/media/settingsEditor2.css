@@ -523,8 +523,8 @@
 .settings-editor > .settings-body > .settings-tree-container .setting-item-contents .setting-item-value .edit-in-settings-button:hover,
 .settings-editor > .settings-body > .settings-tree-container .setting-item-contents .setting-item-value .edit-in-settings-button:active {
 	text-align: left;
-	text-decoration: underline;
-	padding-left: 0px;
+	/* text-decoration: underline; */
+	/* padding-left: 0px; */
 }
 
 .settings-editor > .settings-body > .settings-tree-container .setting-item-contents .monaco-select-box {

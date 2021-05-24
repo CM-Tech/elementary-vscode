@@ -901,7 +901,7 @@ export interface IListStyles {
 
 const defaultStyles: IListStyles = {
 	listFocusBackground: Color.fromHex('#7FB0D0'),
-	listActiveSelectionBackground: Color.fromHex('#0E639C'),
+	listActiveSelectionBackground: Color.fromHex('#3689e6'),
 	listActiveSelectionForeground: Color.fromHex('#FFFFFF'),
 	listFocusAndSelectionBackground: Color.fromHex('#094771'),
 	listFocusAndSelectionForeground: Color.fromHex('#FFFFFF'),

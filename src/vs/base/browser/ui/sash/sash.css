@@ -114,11 +114,15 @@
 .monaco-sash.vertical:before {
 	width: var(--sash-hover-size);
 	left: calc(50% - (var(--sash-hover-size) / 2));
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 1px, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0.05) 2px, transparent 2px);
+	margin-left: 2px;
 }
 
 .monaco-sash.horizontal:before {
 	height: var(--sash-hover-size);
 	top: calc(50% - (var(--sash-hover-size) / 2));
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 1px, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0.05) 2px, transparent 2px);
+	margin-top: 2px;
 }
 
 /** Debug **/

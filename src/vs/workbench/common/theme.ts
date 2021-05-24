@@ -26,7 +26,7 @@ export function WORKBENCH_BACKGROUND(theme: IColorTheme): Color {
 //#region Tab Background
 
 export const TAB_ACTIVE_BACKGROUND = registerColor('tab.activeBackground', {
-	dark: editorBackground,
+	dark: '#333',
 	light: editorBackground,
 	hc: editorBackground
 }, localize('tabActiveBackground', "Active tab background color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."));
@@ -38,8 +38,8 @@ export const TAB_UNFOCUSED_ACTIVE_BACKGROUND = registerColor('tab.unfocusedActiv
 }, localize('tabUnfocusedActiveBackground', "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."));
 
 export const TAB_INACTIVE_BACKGROUND = registerColor('tab.inactiveBackground', {
-	dark: '#2D2D2D',
-	light: '#ECECEC',
+	dark: 'transparent',
+	light: 'transparent',
 	hc: null
 }, localize('tabInactiveBackground', "Inactive tab background color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."));
 
@@ -110,7 +110,7 @@ export const TAB_UNFOCUSED_HOVER_FOREGROUND = registerColor('tab.unfocusedHoverF
 //#region Tab Borders
 
 export const TAB_BORDER = registerColor('tab.border', {
-	dark: '#252526',
+	dark: 'transparent',
 	light: '#F3F3F3',
 	hc: contrastBorder
 }, localize('tabBorder', "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups."));
@@ -214,7 +214,7 @@ export const EDITOR_GROUP_FOCUSED_EMPTY_BORDER = registerColor('editorGroup.focu
 }, localize('editorGroupFocusedEmptyBorder', "Border color of an empty editor group that is focused. Editor groups are the containers of editors."));
 
 export const EDITOR_GROUP_HEADER_TABS_BACKGROUND = registerColor('editorGroupHeader.tabsBackground', {
-	dark: '#252526',
+	dark: '#2c2c2c',
 	light: '#F3F3F3',
 	hc: null
 }, localize('tabsContainerBackground', "Background color of the editor group title header when tabs are enabled. Editor groups are the containers of editors."));
@@ -359,13 +359,13 @@ export const STATUS_BAR_NO_FOLDER_FOREGROUND = registerColor('statusBar.noFolder
 }, localize('statusBarNoFolderForeground', "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window."));
 
 export const STATUS_BAR_BACKGROUND = registerColor('statusBar.background', {
-	dark: '#007ACC',
+	dark: '#2b2b2b',
 	light: '#007ACC',
 	hc: null
 }, localize('statusBarBackground', "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window."));
 
 export const STATUS_BAR_NO_FOLDER_BACKGROUND = registerColor('statusBar.noFolderBackground', {
-	dark: '#68217A',
+	dark: '#2b2b2b',
 	light: '#68217A',
 	hc: null
 }, localize('statusBarNoFolderBackground', "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window."));
@@ -427,7 +427,7 @@ export const STATUS_BAR_ERROR_ITEM_FOREGROUND = registerColor('statusBarItem.err
 // < --- Activity Bar --- >
 
 export const ACTIVITY_BAR_BACKGROUND = registerColor('activityBar.background', {
-	dark: '#333333',
+	dark: '#2c2c2c',
 	light: '#2C2C2C',
 	hc: '#000000'
 }, localize('activityBarBackground', "Activity bar background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar."));
@@ -517,7 +517,7 @@ export const EXTENSION_BADGE_REMOTE_FOREGROUND = registerColor('extensionBadge.r
 // < --- Side Bar --- >
 
 export const SIDE_BAR_BACKGROUND = registerColor('sideBar.background', {
-	dark: '#252526',
+	dark: '#313131',
 	light: '#F3F3F3',
 	hc: '#000000'
 }, localize('sideBarBackground', "Side bar background color. The side bar is the container for views like explorer and search."));

@@ -76,7 +76,7 @@ export const focusedRowBorder = registerColor('notebook.focusedRowBorder', {
 registerThemingParticipant((theme: IColorTheme, collector: ICssStyleCollector) => {
 	const checkboxBackgroundColor = theme.getColor(settingsCheckboxBackground);
 	if (checkboxBackgroundColor) {
-		collector.addRule(`.settings-editor > .settings-body > .settings-tree-container .setting-item-bool .setting-value-checkbox { background-color: ${checkboxBackgroundColor} !important; }`);
+		collector.addRule(`.settings-editor > .settings-body > .settings-tree-container .setting-item-bool .setting-value-checkbox.checked { background-color: ${checkboxBackgroundColor} !important; }`);
 	}
 
 	const checkboxForegroundColor = theme.getColor(settingsCheckboxForeground);

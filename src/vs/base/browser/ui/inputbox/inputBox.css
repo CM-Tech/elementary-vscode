@@ -11,10 +11,27 @@
 
 	/* Customizable */
 	font-size: inherit;
+	background-color: #3a3a3a;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 3px;
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.06), inset 0 1px 1px rgba(0, 0, 0, 0.05), inset 0 0 1px 1px rgba(0, 0, 0, 0.05);
+	color: white;
 }
 
 .monaco-inputbox.idle {
-	border: 1px solid transparent;
+	/* border: 1px solid transparent; */
+
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.monaco-inputbox.synthetic-focus{
+	box-shadow: 0 0 0 2px rgba(54, 137, 230, 0.3), 0 1px 0 0 rgba(255, 255, 255, 0.06), inset 0 1px 1px rgba(0, 0, 0, 0.05), inset 0 0 1px 1px rgba(0, 0, 0, 0.05);
+
+	outline: none !important;
+}
+.monaco-inputbox> .ibwrapper *:focus{
+
+	outline: none !important;
 }
 
 .monaco-inputbox > .ibwrapper > .input,

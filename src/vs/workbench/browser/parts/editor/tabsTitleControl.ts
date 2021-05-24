@@ -26,7 +26,7 @@ import { ScrollableElement } from 'vs/base/browser/ui/scrollbar/scrollableElemen
 import { ScrollbarVisibility } from 'vs/base/common/scrollable';
 import { getOrSet } from 'vs/base/common/map';
 import { IThemeService, registerThemingParticipant } from 'vs/platform/theme/common/themeService';
-import { TAB_INACTIVE_BACKGROUND, TAB_ACTIVE_BACKGROUND, TAB_ACTIVE_FOREGROUND, TAB_INACTIVE_FOREGROUND, TAB_BORDER, EDITOR_DRAG_AND_DROP_BACKGROUND, TAB_UNFOCUSED_ACTIVE_FOREGROUND, TAB_UNFOCUSED_INACTIVE_FOREGROUND, TAB_UNFOCUSED_ACTIVE_BACKGROUND, TAB_UNFOCUSED_ACTIVE_BORDER, TAB_ACTIVE_BORDER, TAB_HOVER_BACKGROUND, TAB_HOVER_BORDER, TAB_UNFOCUSED_HOVER_BACKGROUND, TAB_UNFOCUSED_HOVER_BORDER, EDITOR_GROUP_HEADER_TABS_BACKGROUND, WORKBENCH_BACKGROUND, TAB_ACTIVE_BORDER_TOP, TAB_UNFOCUSED_ACTIVE_BORDER_TOP, TAB_ACTIVE_MODIFIED_BORDER, TAB_INACTIVE_MODIFIED_BORDER, TAB_UNFOCUSED_ACTIVE_MODIFIED_BORDER, TAB_UNFOCUSED_INACTIVE_MODIFIED_BORDER, TAB_UNFOCUSED_INACTIVE_BACKGROUND, TAB_HOVER_FOREGROUND, TAB_UNFOCUSED_HOVER_FOREGROUND, EDITOR_GROUP_HEADER_TABS_BORDER, TAB_LAST_PINNED_BORDER } from 'vs/workbench/common/theme';
+import { TAB_INACTIVE_BACKGROUND, TAB_ACTIVE_BACKGROUND, TAB_ACTIVE_FOREGROUND, TAB_INACTIVE_FOREGROUND, TAB_BORDER, EDITOR_DRAG_AND_DROP_BACKGROUND, TAB_UNFOCUSED_ACTIVE_FOREGROUND, TAB_UNFOCUSED_INACTIVE_FOREGROUND, TAB_UNFOCUSED_ACTIVE_BACKGROUND, TAB_UNFOCUSED_ACTIVE_BORDER, TAB_ACTIVE_BORDER, TAB_HOVER_BACKGROUND, TAB_HOVER_BORDER, TAB_UNFOCUSED_HOVER_BACKGROUND, TAB_UNFOCUSED_HOVER_BORDER, EDITOR_GROUP_HEADER_TABS_BACKGROUND, WORKBENCH_BACKGROUND, TAB_ACTIVE_BORDER_TOP, TAB_UNFOCUSED_ACTIVE_BORDER_TOP, TAB_ACTIVE_MODIFIED_BORDER, TAB_INACTIVE_MODIFIED_BORDER, TAB_UNFOCUSED_ACTIVE_MODIFIED_BORDER, TAB_UNFOCUSED_INACTIVE_MODIFIED_BORDER, TAB_UNFOCUSED_INACTIVE_BACKGROUND, TAB_HOVER_FOREGROUND, TAB_UNFOCUSED_HOVER_FOREGROUND, EDITOR_GROUP_HEADER_TABS_BORDER } from 'vs/workbench/common/theme';
 import { activeContrastBorder, contrastBorder, editorBackground, breadcrumbsBackground } from 'vs/platform/theme/common/colorRegistry';
 import { ResourcesDropHandler, DraggedEditorIdentifier, DraggedEditorGroupIdentifier, DragAndDropObserver } from 'vs/workbench/browser/dnd';
 import { Color } from 'vs/base/common/color';
@@ -49,6 +49,9 @@ import { coalesce, insert } from 'vs/base/common/arrays';
 import { ColorScheme } from 'vs/platform/theme/common/theme';
 import { isSafari } from 'vs/base/browser/browser';
 import { equals } from 'vs/base/common/objects';
+import { ICommandService } from 'vs/platform/commands/common/commands';
+// eslint-disable-next-line code-import-patterns
+import { NEW_FILE_COMMAND_ID } from 'vs/workbench/contrib/files/browser/fileActions';
 
 interface IEditorInputLabel {
 	name?: string;
@@ -77,6 +80,7 @@ export class TabsTitleControl extends TitleControl {
 	private static readonly MOUSE_WHEEL_EVENT_THRESHOLD = 150;
 	private static readonly MOUSE_WHEEL_DISTANCE_THRESHOLD = 1.5;
 
+	private newFileButton: HTMLElement | undefined;
 	private titleContainer: HTMLElement | undefined;
 	private tabsAndActionsContainer: HTMLElement | undefined;
 	private tabsContainer: HTMLElement | undefined;
@@ -118,11 +122,12 @@ export class TabsTitleControl extends TitleControl {
 		@IThemeService themeService: IThemeService,
 		@IConfigurationService configurationService: IConfigurationService,
 		@IFileService fileService: IFileService,
+		@ICommandService commandService: ICommandService,
 		@IEditorService private readonly editorService: EditorServiceImpl,
 		@IPathService private readonly pathService: IPathService,
 		@IEditorGroupsService private readonly editorGroupService: IEditorGroupsService
 	) {
-		super(parent, accessor, group, contextMenuService, instantiationService, contextKeyService, keybindingService, telemetryService, notificationService, menuService, quickInputService, themeService, configurationService, fileService);
+		super(parent, accessor, group, contextMenuService, instantiationService, contextKeyService, keybindingService, telemetryService, notificationService, menuService, quickInputService, themeService, configurationService, fileService, commandService);
 
 		// Resolve the correct path library for the OS we are on
 		// If we are connected to remote, this accounts for the
@@ -140,7 +145,12 @@ export class TabsTitleControl extends TitleControl {
 		this.tabsAndActionsContainer = document.createElement('div');
 		this.tabsAndActionsContainer.classList.add('tabs-and-actions-container');
 		this.titleContainer.appendChild(this.tabsAndActionsContainer);
-
+		// New File Button
+		this.newFileButton = document.createElement('div');
+		this.newFileButton.setAttribute('role', 'tablist');
+		this.newFileButton.classList.add('tab-bar-new-file-button');
+		this.newFileButton.onclick = () => { this.commandService.executeCommand(NEW_FILE_COMMAND_ID); };
+		this.tabsAndActionsContainer.appendChild(this.newFileButton);
 		// Tabs Container
 		this.tabsContainer = document.createElement('div');
 		this.tabsContainer.setAttribute('role', 'tablist');
@@ -1272,12 +1282,12 @@ export class TabsTitleControl extends TitleControl {
 	}
 
 	private redrawTabBorders(index: number, tabContainer: HTMLElement): void {
-		const isTabSticky = this.group.isSticky(index);
-		const isTabLastSticky = isTabSticky && this.group.stickyCount === index + 1;
+		// const isTabSticky = this.group.isSticky(index);
+		// const isTabLastSticky = isTabSticky && this.group.stickyCount === index + 1;
 
 		// Borders / Outline
-		const borderRightColor = ((isTabLastSticky ? this.getColor(TAB_LAST_PINNED_BORDER) : undefined) || this.getColor(TAB_BORDER) || this.getColor(contrastBorder));
-		tabContainer.style.borderRight = borderRightColor ? `1px solid ${borderRightColor}` : '';
+		// const borderRightColor = ((isTabLastSticky ? this.getColor(TAB_LAST_PINNED_BORDER) : undefined) || this.getColor(TAB_BORDER) || this.getColor(contrastBorder));
+		// tabContainer.style.borderRight = borderRightColor ? `1px solid ${borderRightColor}` : '';
 		tabContainer.style.outlineColor = this.getColor(activeContrastBorder) || '';
 	}
 
